@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/2002/REC-xhtml1-20020801/DTD/xhtml1-transitional.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en'>
+	<head>
+	<meta http-equiv='content-type' content='text/html; charset=utf-8' />
+	<meta http-equiv='content-language' content='en-us' />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Names</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	
+	<!-- Add additional CSS in static file -->
+	{% load static %}
+	<script type='text/javascript' src="{% static 'spew/js/app.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'spew/css/styles.css' %}">
+	<link rel="icon" href="{% static 'spew/images/favicon.ico' %}" />
+
+</head>
+<body>
+	<div id='header'>
+		<a class="group-logo" href="./groups">{{ group }}</a>
+		<a class='button' href="./groups">switch group</a>
+	</div>
+	<div id='main'>
+		<button id='spewnames' class='spewon'>Spew names</button>
+	</div>
+	
+	<button id="sidebar-button" onclick="$('#sidebar').toggleClass('open');$(this).toggleClass('open');"></button>
+	<div id='sidebar'>
+		<form method='post'>
+			<h2>category:</h2>
+			<div id='choose'>
+				<input type="radio" name="wordtype" value="na" id="name" checked><label for='name'>name</label>
+				<input type="radio" name="wordtype" value="no" id='noun'><label for='noun'>noun</label>
+				<input type="radio" name="wordtype" value="ad" id='adjective'><label for='adjective'>adjective</label>
+				<input type="radio" name="wordtype" value="av" id='adverb'><label for='adverb'>adverb</label>
+				<input type="radio" name="wordtype" value="se" id='sentence'><label for='sentence'>sentence</label>
+				<input type="radio" name="wordtype" value="su" id='suggest'><label for='suggest'>suggestions for Biffy</label>
+			</div>
+			<h2>word/sentence:</h2>
+			<input type='text' name='word' id='word' autocomplete='off' maxlength='100'>
+			<input type='submit' name='cmd' value='add' class='cmd'>
+			<input type='submit' name='cmd' value='delete' class='cmd'>
+		</form>
+		<h2>substitutions:</h2>
+		<ul>
+			<li>[NAME] is the tag for a name</li>
+			<li>[NOUN] is the tag for a noun</li>
+			<li>[PNOUN] makes a a plural noun</li>
+			<li>[ADJ] is the tag for an adjective</li>
+			<li>[ADV] is the tag for an adverb</li>
+			<li>[SEN] is the tag for a sentence</li>
+			<li>[SEN?] is the tag for an interrogative sentence</li>
+			<li>[REP] gives an exact repeat of the result of the previous tag</li>
+		</ul>
+  </div>
+</body>
+</html>

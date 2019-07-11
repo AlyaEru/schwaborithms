@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/2002/REC-xhtml1-20020801/DTD/xhtml1-transitional.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en'>
+	<head>
+	<meta http-equiv='content-type' content='text/html; charset=utf-8' />
+	<meta http-equiv='content-language' content='en-us' />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Names</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	
+	<!-- Add additional CSS in static file -->
+	{% load static %}
+	<script type='text/javascript' src="{% static 'spew/js/groupselect.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'spew/css/styles.css' %}">
+	<link rel="icon" href="{% static 'spew/images/favicon.ico' %}" />
+
+
+</head>
+<body>
+	<div id='header'>
+		<a class="group-logo">Names</a>
+	</div>
+	<div id='main' class='group-list'>
+		<h2>My Groups:</h2>
+	</div>
+	
+	<button id="sidebar-button" onclick="$('#sidebar').toggleClass('open');$(this).toggleClass('open');"></button>
+	<div id='sidebar'>
+		
+		<form id="group-form" method="post">
+			<h2>Group Name:</h2>
+			<input type="text" name="word" id="groupname" autocomplete="off" maxlength="100">
+			<h2>Password:</h2>
+			<input type="password" name="word" id="grouppassword" maxlength="100">
+			<h2 style="display:none" class="confirm">Confirm Password:</h2><input type="password" class="confirm" name="word" id="confirmgrouppassword" maxlength="100" style="display:none">
+			<input type="submit" name="cmd" value="join" class="cmd" id="join">
+			<input type="submit" name="cmd" value="create" class="cmd" id="create">
+			<input type="submit" name="cmd" value="create" class="cmd confirm" id="final-create" style="color:green; display:none">
+			<input type="submit" name="cmd" value="cancel" class="cmd confirm" id="cancel" style="color:red; display:none">
+		</form>
+		
+	</div>
+
+</body>
+</html>
